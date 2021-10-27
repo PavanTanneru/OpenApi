@@ -1,0 +1,98 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Json Placeholder",
+    "description": "Able to make few things work for the open api",
+    "contact": {
+      "name": "Tanneru Pavan Kumar",
+      "url": "https://www.ptanneru@deloitte.com",
+      "email": "ptanneru@deloitte.com"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://jsonplaceholder.typicode.com",
+      "description": "Development Server"
+    }
+  ],
+  "paths": {
+    "/todos/{id}": {
+      "get": {
+        "tags": [
+          "Todos"
+        ],
+        "description": "This writtens all the data related to the todos path of placeholder",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Todos Id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returnd the data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Data"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unable to load the data"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Data": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "example": 1
+          },
+          "id": {
+            "type": "integer",
+            "example": 1
+          },
+          "title": {
+            "type": "string",
+            "example": "testing the title"
+          },
+          "body": {
+            "type": "string",
+            "example": "Testing the data related to the body"
+          }
+        },
+        "description": "Returns the data json"
+      }
+    },
+    "parameters": {
+      "getParam": {
+        "name": "id",
+        "in": "path",
+        "description": "Todos Id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "schema": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    }
+  }
+}
